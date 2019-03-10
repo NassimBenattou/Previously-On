@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/Login.js';
-import AllSeries from './components/AllSeries.js';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import FavoriteSeries from './components/FavoriteSeries.js';
 import './App.css';
 
 
 class App extends Component {
 
-  constructor(props){
-
-    super(props);
-
-    this.state = {
-      
-    }
-  }
-
   render() {
     return (
       <div>
-        <Login />
+        <BrowserRouter>
+          <Switch>
+            <Route path='/' component={Login} exact />
+            <Route path='/favoris' component={FavoriteSeries} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

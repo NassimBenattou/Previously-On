@@ -15,10 +15,12 @@ class Login extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleNav = this.handleNav.bind(this);
     }
 
     componentDidMount(){
-       if("token" in localStorage){
+       
+        if("token" in localStorage){
             this.setState({
                 isLoggedIn: true
             })
@@ -66,6 +68,10 @@ class Login extends Component {
 
         localStorage.clear();
     }
+    
+    handleNav(){
+        console.log('redirect');
+    };
 
     render() {
 
@@ -75,7 +81,6 @@ class Login extends Component {
             
             loginForm = (
                 <div>
-                    <button onClick={this.handleClick.bind(this)} className="btn btn-danger">Déconnexion</button>
                     <AllSeries />
                 </div>
             )
